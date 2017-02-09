@@ -3,7 +3,7 @@
 .help [string]protectedserver
 The protected server(s) to run the mountability check on.
 #>
-function Check-AppAssureMountability {
+function Start-AppAssureMountability {
 [cmdletbinding()]
 param(
     [Parameter(Mandatory=$True,
@@ -33,3 +33,5 @@ param(
     }
     END {}
 }
+
+Invoke-Command -ComputerName CH-BACK-02-NEW.citihosts.local -ScriptBlock { Start-AppAssureMountability -protectedserver MM-EX-01 }
